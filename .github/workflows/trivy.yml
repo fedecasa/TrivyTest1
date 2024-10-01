@@ -1,17 +1,19 @@
 name: build
 
+permissions:
+      actions: write
 on:
   push:
     branches:
       - main
   pull_request:
-  
+
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
     permissions:
-      actions: read
+      actions: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
