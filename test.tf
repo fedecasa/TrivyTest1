@@ -1,4 +1,4 @@
-# main.tf
+# test.tf
 
 # Specify the provider
 provider "aws" {
