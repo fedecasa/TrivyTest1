@@ -1,4 +1,4 @@
-# test.tf
+# trivytest.tf
 
 # Specify the provider
 provider "aws" {
