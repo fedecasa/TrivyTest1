@@ -18,8 +18,8 @@ jobs:
           scan-type: 'fs'
           ignore-unfixed: true
           format: 'sarif'
-          #output: 'trivy-results.sarif'
-          sarif_file: trivy.sarif
+          output: 'trivy.sarif'
+          #sarif_file: trivy.sarif
           severity: 'CRITICAL,HIGH'
         continue-on-error: true             # don't block the pipeline is security findings are spotted
          
