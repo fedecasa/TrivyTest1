@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - feat/trivy
   pull_request:
 jobs:
   build:
@@ -19,7 +18,8 @@ jobs:
           scan-type: 'fs'
           ignore-unfixed: true
           format: 'sarif'
-          output: 'trivy-results.sarif'
+          #output: 'trivy-results.sarif'
+          sarif_file: trivy.sarif
           severity: 'CRITICAL,HIGH'
         continue-on-error: true             # don't block the pipeline is security findings are spotted
          
@@ -30,7 +30,13 @@ jobs:
      #    with:
      #      sarif_file: 'trivy-results.sarif'
  
-      - name: Upload Trivy scan results to GitHub Security tab
+      # - name: Upload Trivy scan results to GitHub Security tab
+      #   uses: github/codeql-action/upload-sarif@v3
+      #   with:
+      #     sarif_file: 'trivy.sarif'
+
+      - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: 'trivy-results.sarif'
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: tfsec.sarif
