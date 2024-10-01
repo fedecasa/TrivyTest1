@@ -1,7 +1,7 @@
 name: build
 
 permissions:
-      actions: write
+      actions: read
 on:
   push:
     branches:
@@ -13,7 +13,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     permissions:
-      actions: write
+      actions: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
